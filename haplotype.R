@@ -164,14 +164,17 @@ print(xtable(df, digits=6), type = "latex", include.rownames = FALSE)
 
 
 m <- hprob%*%t(hprob)
-m
+sum(m)
+print(xtable(m, digits=6), type = "latex")
+
 # which(m == max(m), arr.ind = TRUE)
 
 
-# Which genotype is the second most likely, and what is its probability?
+#Which genotype is the second most likely, and what is its probability?
 m.sec <- hprob%*%t(hprob)
 m.sec[8,8] <- 0
 m.sec
 which(m.sec == max(m.sec), arr.ind = TRUE)
-max(m.sec)
+2*max(m.sec)
+
 # 
